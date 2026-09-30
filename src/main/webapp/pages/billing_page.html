@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Hospital Billing</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f6fa;
+        }
+
+        .container {
+            width: 450px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px #aaa;
+        }
+
+        h2 {
+            text-align: center;
+            color: darkblue;
+            margin-bottom: 25px;
+        }
+
+        .info {
+            background-color: #eef5ff;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .details {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .details p {
+            margin: 8px 0;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 7px;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            box-sizing: border-box;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: darkblue;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 22px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            text-decoration: none;
+            color: darkblue;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Hospital Billing</h2>
+
+    <div class="info">
+
+        Appointment and Doctor details are taken
+        automatically from your booking.
+
+    </div>
+
+    <!-- Appointment Details -->
+
+    <div class="details">
+
+        <p>
+            <strong>Appointment ID:</strong>
+
+            <span id="appointmentIdDisplay">
+                Loading...
+            </span>
+        </p>
+
+        <p>
+            <strong>Doctor ID:</strong>
+
+            <span id="doctorIdDisplay">
+                Loading...
+            </span>
+        </p>
+
+    </div>
+
+
+    <form
+        action="/HospitalManagementSystem/BillingServlet"
+        method="post"
+        onsubmit="return validateBilling();"
+    >
+
+        <!-- Hidden Appointment ID -->
+
+        <input
+            type="hidden"
+            id="appointmentId"
+            name="appointmentId"
+        >
+
+
+        <!-- Hidden Doctor ID -->
+
+        <input
+            type="hidden"
+            id="doctorId"
+            name="doctorId"
+        >
+
+
+        <label>
+            Additional Charges
+        </label>
+
+        <input
+            type="number"
+            name="additionalCharges"
+            min="0"
+            step="0.01"
+            value="0"
+            placeholder="Enter additional charges"
+        >
+
+        <div class="note">
+
+            Consultation fee will be taken automatically
+            from the selected doctor's details.
+
+        </div>
+
+
+        <button type="submit">
+
+            Generate Bill
+
+        </button>
+
+    </form>
+
+
+    <p
+        id="errorMessage"
+        class="error"
+    ></p>
+
+
+    <a
+        class="back"
+        href="/HospitalManagementSystem/pages/patient_dashboard.html"
+    >
+
+        Back to Patient Dashboard
+
+    </a>
+
+</div>
+
+
+<script>
+
+    // Get values from URL
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const appointmentId =
+        params.get("appointmentId");
+
+
+    const doctorId =
+        params.get("doctorId");
+
+
+    // Display Appointment ID
+
+    if (appointmentId) {
+
+        document.getElementById(
+            "appointmentIdDisplay"
+        ).textContent = appointmentId;
+
+        document.getElementById(
+            "appointmentId"
+        ).value = appointmentId;
+
+    } else {
+
+        document.getElementById(
+            "appointmentIdDisplay"
+        ).textContent =
+            "Appointment ID not found";
+
+    }
+
+
+    // Display Doctor ID
+
+    if (doctorId) {
+
+        document.getElementById(
+            "doctorIdDisplay"
+        ).textContent = doctorId;
+
+        document.getElementById(
+            "doctorId"
+        ).value = doctorId;
+
+    } else {
+
+        document.getElementById(
+            "doctorIdDisplay"
+        ).textContent =
+            "Doctor ID not found";
+
+    }
+
+
+    // Validate before submitting
+
+    function validateBilling() {
+
+        if (!appointmentId || !doctorId) {
+
+            document.getElementById(
+                "errorMessage"
+            ).textContent =
+                "Appointment ID or Doctor ID is missing.";
+
+            return false;
+        }
+
+        return true;
+    }
+
+</script>
+
+</body>
+
+</html>

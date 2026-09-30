@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Billing</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+        }
+
+        .container {
+            width: 450px;
+            margin: 100px auto;
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        .success {
+            color: green;
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: darkblue;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: green;
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        .back {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: darkblue;
+            font-size: 15px;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="success">
+        ✓
+    </div>
+
+    <h2>
+        Bill Generated Successfully!
+    </h2>
+
+    <p>
+        Your hospital bill has been generated successfully.
+    </p>
+
+    <p>
+        Consultation fee and additional charges
+        have been added to your bill.
+    </p>
+
+    <form
+        action="/HospitalManagementSystem/BillingListServlet"
+        method="get">
+
+        <button type="submit">
+            View All Bills
+        </button>
+
+    </form>
+
+    <a
+        class="back"
+        href="/HospitalManagementSystem/pages/patient_dashboard.html">
+
+        Back to Patient Dashboard
+
+    </a>
+
+</div>
+
+</body>
+
+</html>

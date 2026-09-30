@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Find Doctor</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+        }
+
+        .container {
+            width: 500px;
+            margin: 100px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        input {
+            width: 90%;
+            padding: 13px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 95%;
+            padding: 13px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .back {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #2563eb;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Find a Doctor</h2>
+
+        <p>
+            Enter your disease or health problem
+        </p>
+
+        <form
+            action="/HospitalManagementSystem/DoctorSearchServlet"
+            method="get">
+
+            <input
+                type="text"
+                name="disease"
+                placeholder="Example: Fever, Eye Problem, Ear Problem"
+                required>
+
+            <button type="submit">
+                Search Doctor
+            </button>
+
+        </form>
+
+        <a
+            class="back"
+            href="/HospitalManagementSystem/pages/patient_dashboard.html">
+
+            Back to Patient Dashboard
+
+        </a>
+
+    </div>
+
+</body>
+
+</html>

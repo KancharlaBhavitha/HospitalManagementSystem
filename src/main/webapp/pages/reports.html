@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Reports</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f2f2f2;
+}
+
+.container{
+width:500px;
+margin:50px auto;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+text-align:center;
+}
+
+button{
+width:250px;
+padding:12px;
+margin:10px;
+background:green;
+color:white;
+border:none;
+font-size:18px;
+cursor:pointer;
+}
+
+button:hover{
+background:darkgreen;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>Hospital Reports</h2>
+
+<form action="/HospitalManagementSystem/ReportServlet" method="get">
+
+<button name="type" value="patients">Patient Report</button><br>
+
+<button name="type" value="doctors">Doctor Report</button><br>
+
+<button name="type" value="appointments">Appointment Report</button><br>
+
+<button name="type" value="billing">Billing Report</button><br>
+
+<button name="type" value="payments">Payment Report</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

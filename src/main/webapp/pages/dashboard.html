@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Hospital Management System - Dashboard</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    color: #333;
+}
+
+/* Header */
+
+.header {
+    background-color: #0d47a1;
+    color: white;
+    padding: 20px 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 28px;
+}
+
+.logout {
+    color: white;
+    text-decoration: none;
+    background-color: #e53935;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.logout:hover {
+    background-color: #c62828;
+}
+
+/* Main */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.welcome {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.welcome h2 {
+    color: #0d47a1;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Module Grid */
+
+.modules {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* Cards */
+
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.12);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.18);
+}
+
+.icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #0d47a1;
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+.card p {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+
+.card a {
+    display: inline-block;
+
+    text-decoration: none;
+
+    background-color: #0d47a1;
+    color: white;
+
+    padding: 11px 22px;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+}
+
+.card a:hover {
+    background-color: #1565c0;
+}
+
+/* Footer */
+
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+
+    color: #777;
+    font-size: 14px;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .header {
+        padding: 15px 20px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+    .modules {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <h1>🏥 Hospital Management System</h1>
+
+    <a class="logout" href="login_page.html">
+        Logout
+    </a>
+
+</div>
+
+
+<!-- MAIN -->
+
+<div class="container">
+
+
+    <!-- WELCOME -->
+
+    <div class="welcome">
+
+        <h2>Welcome to Dashboard</h2>
+
+        <p>
+            Manage hospital activities easily from one place
+        </p>
+
+    </div>
+
+
+    <!-- MODULES -->
+
+    <div class="modules">
+
+
+        <!-- Patient Registration -->
+
+        <div class="card">
+
+            <div class="icon">👤</div>
+
+            <h3>Patient Registration</h3>
+
+            <p>
+                Register new patients and maintain their details.
+            </p>
+
+            <a href="patient_registration_page.html">
+                Open
+            </a>
+
+        </div>
+
+
+        <!-- Doctor Registration -->
+
+        <div class="card">
+
+            <div class="icon">👨‍⚕️</div>
+
+            <h3>Doctor Registration</h3>
+
+            <p>
+                Register doctors and manage their professional details.
+            </p>
+
+            <a href="doctor_registration_page.html">
+                Open
+            </a>
+
+        </div>
+
+
+        <!-- Book Appointment -->
+
+        <div class="card">
+
+            <div class="icon">📅</div>
+
+            <h3>Book Appointment</h3>
+
+            <p>
+                Schedule an appointment with a doctor.
+            </p>
+
+            <!-- IMPORTANT:
+                 If your actual file is appointment_page.html,
+                 use appointment_page.html here.
+            -->
+
+            <a href="appointment_page.html">
+                Book Now
+            </a>
+
+        </div>
+
+
+        <!-- Billing -->
+
+        <div class="card">
+
+            <div class="icon">💳</div>
+
+            <h3>Billing</h3>
+
+            <p>
+                Manage patient billing and payment details.
+            </p>
+
+            <a href="billing_page.html">
+                Open
+            </a>
+
+        </div>
+
+
+        <!-- Generate Bill -->
+
+        <div class="card">
+
+            <div class="icon">🧾</div>
+
+            <h3>Generate Bill</h3>
+
+            <p>
+                Generate and manage patient bills.
+            </p>
+
+            <a href="generate_bill_page.html">
+                Generate
+            </a>
+
+        </div>
+
+
+        <!-- Appointment List -->
+
+        <div class="card">
+
+            <div class="icon">📋</div>
+
+            <h3>Appointment List</h3>
+
+            <p>
+                View all booked appointments.
+            </p>
+
+            <a href="../AppointmentListServlet">
+                View Appointments
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        <p>
+            © 2026 Hospital Management System
+        </p>
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Patient Profile</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 600px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+            color: darkblue;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            width: 35%;
+            background-color: #f5f5f5;
+        }
+
+        .back-button {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 17px;
+        }
+
+        .back-button:hover {
+            background-color: #00008b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Patient Profile</h2>
+
+        <table>
+
+            <tr>
+                <td>Patient ID</td>
+                <td id="patientId">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>Full Name</td>
+                <td id="fullName">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>Email</td>
+                <td id="email">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>Phone Number</td>
+                <td id="phoneNumber">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>Gender</td>
+                <td id="gender">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>Date of Birth</td>
+                <td id="dateOfBirth">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>Address</td>
+                <td id="address">Loading...</td>
+            </tr>
+
+        </table>
+
+        <a class="back-button"
+           href="/HospitalManagementSystem/pages/patient_dashboard.html">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+</body>
+
+</html>

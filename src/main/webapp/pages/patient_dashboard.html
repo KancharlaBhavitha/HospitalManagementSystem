@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Dashboard</title>
+
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f2f6fc;
+    }
+
+    .header {
+        background: darkblue;
+        color: white;
+        padding: 25px;
+        text-align: center;
+    }
+
+    .header h1 {
+        margin: 0;
+    }
+
+    .header p {
+        margin-top: 10px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: 40px auto;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+
+    .card {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 0px 10px #ccc;
+        text-align: center;
+    }
+
+    .card h3 {
+        color: darkblue;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        color: #555;
+        min-height: 45px;
+    }
+
+    .button {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: green;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+    }
+
+    .button:hover {
+        background: darkgreen;
+    }
+
+    .logout {
+        display: block;
+        width: 150px;
+        margin: 35px auto;
+        padding: 12px;
+        text-align: center;
+        background: red;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+    }
+
+    .logout:hover {
+        background: darkred;
+    }
+</style>
+
+
+</head>
+
+<body>
+
+```
+<!-- Header -->
+<div class="header">
+
+    <h1>Hospital Management System</h1>
+
+    <h2>Welcome Patient</h2>
+
+    <p>
+        Manage your profile, find doctors and appointments.
+    </p>
+
+</div>
+
+
+<!-- Dashboard -->
+<div class="container">
+
+    <div class="cards">
+
+        <!-- My Profile -->
+        <div class="card">
+
+            <h3>My Profile</h3>
+
+            <p>
+                View your personal information.
+            </p>
+
+            <a class="button"
+               href="/HospitalManagementSystem/PatientProfileServlet">
+
+                View Profile
+
+            </a>
+
+        </div>
+
+
+        <!-- Hospital Doctors -->
+        <div class="card">
+
+            <h3>Hospital Doctors</h3>
+
+            <p>
+                View all doctors available in our hospital.
+            </p>
+
+            <a class="button"
+               href="/HospitalManagementSystem/DoctorListServlet">
+
+                View Doctors
+
+            </a>
+
+        </div>
+
+
+        <!-- Find Doctor -->
+        <div class="card">
+
+            <h3>Find Doctor</h3>
+
+            <p>
+                Enter your disease and find a suitable doctor.
+            </p>
+
+            <a class="button"
+               href="/HospitalManagementSystem/pages/find_doctor.html">
+
+                Find Doctor
+
+            </a>
+
+        </div>
+
+
+        <!-- My Appointments -->
+        <div class="card">
+
+            <h3>My Appointments</h3>
+
+            <p>
+                View your booked appointments.
+            </p>
+
+            <a class="button"
+               href="/HospitalManagementSystem/AppointmentListServlet">
+
+                View Appointments
+
+            </a>
+
+        </div>
+
+
+        <!-- My Bill -->
+        <div class="card">
+
+            <h3>My Bill</h3>
+
+            <p>
+                View your consultation and hospital bills.
+            </p>
+
+            <a class="button"
+               href="/HospitalManagementSystem/BillingListServlet">
+
+                View Bills
+
+            </a>
+
+        </div>
+
+
+        <!-- Payments -->
+        <div class="card">
+
+            <h3>Payments</h3>
+
+            <p>
+                View your payment details.
+            </p>
+
+            <a class="button"
+               href="/HospitalManagementSystem/PaymentListServlet">
+
+                View Payments
+
+            </a>
+
+        </div>
+
+
+        <!-- Invoice -->
+        <div class="card">
+
+            <h3>Invoice</h3>
+
+            <p>
+                View your hospital invoice details.
+            </p>
+
+            <a class="button"
+               href="/HospitalManagementSystem/InvoiceListServlet">
+
+                View Invoice
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Logout -->
+    <a class="logout"
+       href="/HospitalManagementSystem/pages/login_page.html">
+
+        Logout
+
+    </a>
+
+</div>
+
+</body>
+
+</html>

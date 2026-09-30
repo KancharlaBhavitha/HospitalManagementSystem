@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Book Appointment</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f6fa;
+        }
+
+        .container {
+            width: 450px;
+            margin: 60px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px #aaa;
+        }
+
+        h2 {
+            text-align: center;
+            color: darkblue;
+            margin-bottom: 25px;
+        }
+
+        .info {
+            background-color: #eef5ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .info p {
+            margin: 8px 0;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 7px;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            box-sizing: border-box;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: darkblue;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            text-decoration: none;
+            color: darkblue;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Book Appointment</h2>
+
+
+    <div class="info">
+
+        <p>
+            <strong>Patient ID:</strong>
+            Automatically taken from login session
+        </p>
+
+        <p>
+            <strong>Selected Doctor ID:</strong>
+
+            <span id="doctorIdDisplay">
+                Loading...
+            </span>
+        </p>
+
+        <p>
+            <strong>Disease:</strong>
+
+            <span id="diseaseDisplay">
+                Loading...
+            </span>
+        </p>
+
+    </div>
+
+
+    <form
+        action="/HospitalManagementSystem/AppointmentServlet"
+        method="post"
+        onsubmit="return validateAppointment();"
+    >
+
+
+        <!-- Doctor ID automatically sent to Servlet -->
+
+        <input
+            type="hidden"
+            id="doctorId"
+            name="doctorId"
+        >
+
+
+        <!-- Disease automatically sent as reason -->
+
+        <input
+            type="hidden"
+            id="reason"
+            name="reason"
+        >
+
+
+        <label>
+            Appointment Date
+        </label>
+
+        <input
+            type="date"
+            id="appointmentDate"
+            name="appointmentDate"
+            required
+        >
+
+
+        <label>
+            Appointment Time
+        </label>
+
+        <input
+            type="time"
+            id="appointmentTime"
+            name="appointmentTime"
+            required
+        >
+
+
+        <button type="submit">
+            Book Appointment
+        </button>
+
+    </form>
+
+
+    <p
+        id="errorMessage"
+        class="error">
+    </p>
+
+
+    <a
+        class="back"
+        href="/HospitalManagementSystem/pages/patient_dashboard.html"
+    >
+        Back to Patient Dashboard
+    </a>
+
+</div>
+
+
+<script>
+
+    // Get values from URL
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const doctorId =
+        params.get("doctorId");
+
+
+    const disease =
+        params.get("disease");
+
+
+    // Display Doctor ID
+
+    if (doctorId) {
+
+        document.getElementById(
+            "doctorIdDisplay"
+        ).textContent = doctorId;
+
+        document.getElementById(
+            "doctorId"
+        ).value = doctorId;
+
+    } else {
+
+        document.getElementById(
+            "doctorIdDisplay"
+        ).textContent =
+            "Doctor ID not found";
+
+    }
+
+
+    // Display Disease
+
+    if (disease) {
+
+        document.getElementById(
+            "diseaseDisplay"
+        ).textContent = disease;
+
+        document.getElementById(
+            "reason"
+        ).value = disease;
+
+    } else {
+
+        document.getElementById(
+            "diseaseDisplay"
+        ).textContent =
+            "Disease not found";
+
+    }
+
+
+    function validateAppointment() {
+
+        if (!doctorId) {
+
+            document.getElementById(
+                "errorMessage"
+            ).textContent =
+                "Doctor ID is missing.";
+
+            return false;
+        }
+
+
+        if (!disease) {
+
+            document.getElementById(
+                "errorMessage"
+            ).textContent =
+                "Disease is missing.";
+
+            return false;
+        }
+
+
+        return true;
+    }
+
+</script>
+
+</body>
+
+</html>
