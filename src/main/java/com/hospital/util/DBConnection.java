@@ -6,13 +6,13 @@ import java.sql.DriverManager;
 public class DBConnection {
 
     private static final String URL =
-            System.getenv("DB_URL");
+            "jdbc:mysql://localhost:3306/hospital_db";
 
     private static final String USER =
-            System.getenv("DB_USER");
+            "root";
 
     private static final String PASSWORD =
-            System.getenv("DB_PASSWORD");
+            "root";
 
     public static Connection getConnection() {
 
@@ -20,7 +20,9 @@ public class DBConnection {
 
         try {
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName(
+                    "com.mysql.cj.jdbc.Driver"
+            );
 
             con = DriverManager.getConnection(
                     URL,
