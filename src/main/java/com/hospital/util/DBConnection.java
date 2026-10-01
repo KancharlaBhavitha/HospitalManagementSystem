@@ -5,29 +5,46 @@ import java.sql.DriverManager;
 
 public class DBConnection {
 
-    private static final String URL =
-            "jdbc:mysql://localhost:3306/hospital_db";
-
-    private static final String USER =
-            "root";
-
-    private static final String PASSWORD =
-            "root";
-
     public static Connection getConnection() {
 
         Connection con = null;
 
         try {
 
-            Class.forName(
-                    "com.mysql.cj.jdbc.Driver"
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            String host = System.getenv().getOrDefault(
+                    "DB_HOST", "localhost"
             );
+
+            String port = System.getenv().getOrDefault(
+                    "DB_PORT", "3306"
+            );
+
+            String database = System.getenv().getOrDefault(
+                    "DB_NAME", "hospital_db"
+            );
+
+            String user = System.getenv().getOrDefault(
+                    "DB_USER", "root"
+            );
+
+            String password = System.getenv().getOrDefault(
+                    "DB_PASSWORD", "root"
+            );
+
+            String sslMode = System.getenv().getOrDefault(
+                    "DB_SSL_MODE", "DISABLED"
+            );
+
+            String URL = "jdbc:mysql://" + host + ":" + port
+                    + "/" + database
+                    + "?sslMode=" + sslMode;
 
             con = DriverManager.getConnection(
                     URL,
-                    USER,
-                    PASSWORD
+                    user,
+                    password
             );
 
             System.out.println(
